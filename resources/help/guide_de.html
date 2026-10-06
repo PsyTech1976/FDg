@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FDg - Benutzerhandbuch</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Liberation Sans", sans-serif;
+    color: #24292e;
+    line-height: 1.5;
+    margin: 16px;
+    background-color: #ffffff;
+}
+.lang-bar {
+    background-color: #f6f8fa;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+.lang-title {
+    font-weight: bold;
+    color: #444d56;
+    margin-right: 8px;
+}
+.lang-link {
+    text-decoration: none;
+    color: #0366d6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.lang-link:hover {
+    background-color: #e1e4e8;
+}
+.lang-link.active {
+    background-color: #0366d6;
+    color: #ffffff;
+    font-weight: bold;
+}
+h1 {
+    color: #1a1e2d;
+    border-bottom: 2px solid #00f2fe;
+    padding-bottom: 8px;
+    margin-top: 0;
+}
+h2 {
+    color: #1a1e2d;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 5px;
+    margin-top: 24px;
+}
+h3 {
+    color: #24292e;
+    margin-top: 16px;
+}
+.callout {
+    background-color: #f1f8ff;
+    border-left: 4px solid #0366d6;
+    padding: 10px 14px;
+    margin: 12px 0;
+    border-radius: 3px;
+}
+.callout-success {
+    background-color: #dcffe4;
+    border-left: 4px solid #28a745;
+}
+.callout-warning {
+    background-color: #fffbdd;
+    border-left: 4px solid #f66a0a;
+}
+code {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-family: "Liberation Mono", monospace;
+    font-size: 90%;
+    color: #d73a49;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+}
+th, td {
+    border: 1px solid #d1d5da;
+    padding: 8px 10px;
+    text-align: left;
+}
+th {
+    background-color: #f6f8fa;
+}
+ul, ol {
+    padding-left: 20px;
+}
+li {
+    margin-bottom: 4px;
+}
+.footer {
+    margin-top: 30px;
+    padding-top: 12px;
+    border-top: 1px solid #eaecef;
+    font-size: 85%;
+    color: #586069;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="lang-bar"><span class="lang-title">🌐 Lingua / Language:</span> <a href="guide_it.html" class="lang-link">🇮🇹 Italiano</a> &nbsp;|&nbsp; <a href="guide_en.html" class="lang-link">🇬🇧 English</a> &nbsp;|&nbsp; <a href="guide_de.html" class="lang-link active">🇩🇪 Deutsch</a> &nbsp;|&nbsp; <a href="guide_es.html" class="lang-link">🇪🇸 Español</a> &nbsp;|&nbsp; <a href="guide_fr.html" class="lang-link">🇫🇷 Français</a></div>
+
+<h1>📖 FDg Benutzerhandbuch v1.2.0</h1>
+<p><i>Anwendung erstellt mit KI nach einer Idee von PsyTech76 - Kostenlos</i></p>
+
+<h2>1. Was ist FDg?</h2>
+<p>
+<b>FDg</b> ist eine moderne, reaktionsschnelle und benutzerfreundliche grafische Oberfläche für den extrem schnellen Linux-Suchbefehl <code>fd</code> (auf Debian/Ubuntu als <code>fdfind</code> bezeichnet).
+FDg findet Dateien und Ordner im Handumdrehen auf jedem Datenträger, mit voller Unterstützung für MS-DOS-Platzhalter (<code>*</code> und <code>?</code>), natürlicher Sortierung und vollständiger Desktop-Integration.
+</p>
+
+<h2>2. Durchführung einer Suche</h2>
+<ol>
+    <li><b>Suchfeld:</b> Geben Sie den Dateinamen oder das Suchmuster ein (z. B. <code>dokument*.pdf</code> oder <code>*bericht*</code>). Die Schaltfläche <b>Suchen</b> wird automatisch nur aktiviert, wenn Text eingegeben wurde.</li>
+    <li><b>Startordner:</b>
+        <ul>
+            <li>Standardmäßig auf das Root-Verzeichnis <code>/</code> eingestellt.</li>
+            <li>Klicken Sie auf <b>Home</b>, um sofort Ihr Benutzerverzeichnis festzulegen.</li>
+            <li>Klicken Sie auf <b>Durchsuchen...</b>, um einen beliebigen Ordner auszuwählen.</li>
+        </ul>
+    </li>
+    <li><b>Zusätzliche Suchparameter (einklappbar):</b>
+        <p>Ein Klick auf <code>▶ Zusätzliche Suchparameter</code> öffnet oder schließt das erweiterte Optionsfeld, um die Benutzeroberfläche übersichtlich zu halten:</p>
+        <ul>
+            <li><b>Versteckte Dateien (-H):</b> Sucht auch in versteckten Dateien und Verzeichnissen.</li>
+            <li><b>Groß-/Kleinschreibung (-s):</b> Berücksichtigt Groß- und Kleinschreibung.</li>
+            <li><b>Symlinks folgen (-L):</b> Folgt symbolischen Verknüpfungen.</li>
+            <li><b>Platzhalter (* und ?):</b> Standardmäßig aktiv für DOS-Muster.</li>
+            <li><b>Elementtyp:</b> Beschränkung auf <i>Alle Elemente</i>, <i>Nur Dateien</i> oder <i>Nur Ordner</i>.</li>
+            <li><b>Sprache:</b> Schneller Wechsel der Benutzeroberflächensprache.</li>
+        </ul>
+    </li>
+    <li>Klicken Sie auf <b>Suchen</b> oder drücken Sie <b>Eingabe</b> auf der Tastatur.</li>
+</ol>
+
+<h2>3. MS-DOS Platzhalter (* und ?)</h2>
+<table>
+    <tr><th>Muster</th><th>Beschreibung</th></tr>
+    <tr><td><code>*.txt</code></td><td>Alle Dateien mit der Endung .txt</td></tr>
+    <tr><td><code>*.*</code></td><td>Alle Dateien mit einer beliebigen Erweiterung</td></tr>
+    <tr><td><code>name*.jpg</code></td><td>Dateien, die mit 'name' beginnen und auf '.jpg' enden</td></tr>
+    <tr><td><code>doc*</code></td><td>Dateien und Ordner, die mit 'doc' beginnen</td></tr>
+    <tr><td><code>*bericht*</code></td><td>Dateien, die 'bericht' im Namen enthalten</td></tr>
+    <tr><td><code>test?.png</code></td><td>Ersetzt ein einzelnes Zeichen (z. B. test1.png)</td></tr>
+    <tr><td><code>*</code></td><td>Listet alle Elemente im gewählten Ordner auf</td></tr>
+</table>
+
+<h2>4. Sofortiger Suchabbruch (Kill App / Prozess)</h2>
+<div class="callout callout-success">
+<b>Sicherheit und Performance garantiert:</b><br/>
+Wenn Sie auf <b>Abbrechen</b> klicken, wird der Hintergrundprozess <code>fd</code> sofort mit <code>SIGKILL</code> beendet.<br/>
+<b>Warum ist das absolut sicher?</b> Der Befehl <code>fd</code> führt ausschließlich Leseoperationen (read-only) auf Dateisystem-Metadaten durch. Es werden niemals Dateien verändert oder gelöscht. Das sofortige Beenden ist daher völlig sicher für Ihr System und gibt Prozessor (CPU) und Arbeitsspeicher unmittelbar frei.
+</div>
+
+<h2>5. Ergebnisse und Interaktion</h2>
+<ul>
+    <li><b>Doppelklick auf Dateiname:</b> Öffnet die Datei direkt mit der Standardanwendung Ihres Systems.</li>
+    <li><b>Doppelklick auf Pfad:</b> Öffnet den Dateimanager (Dolphin, Nautilus usw.) und <b>hebt die Datei hervor, ohne sie zu öffnen</b>.</li>
+    <li><b>Klick auf Spaltenkopf:</b> Sortiert die Liste aufsteigend oder absteigend.</li>
+    <li><b>Rechtsklick (Kontextmenü):</b> Optionen zum Öffnen, Anzeigen im Dateimanager oder Kopieren des Pfads/Namens.</li>
+</ul>
+
+<h2>6. Desktop-Integration (Menü & Taskleiste)</h2>
+<p>
+AppImage-Anwendungen werden an temporären Einhängepunkten ausgeführt. Wenn ein laufendes AppImage direkt an die KDE-Plasma- oder GNOME-Leiste angeheftet wird, kann das Icon nach dem Beenden verschwinden.
+</p>
+<p>
+Um dies dauerhaft zu beheben, bietet FDg eine integrierte Funktion im Menü <b>Werkzeuge</b>:
+</p>
+<ul>
+    <li><b>In das System integrieren (Menü & Taskleiste)...</b>: Erstellt automatisch einen Standard-Desktop-Starter (<code>fdg.desktop</code>) und ein hochauflösendes Icon in Ihrem Benutzerverzeichnis (<code>~/.local/share/applications/</code> und <code>~/.local/share/icons/</code>). Danach erscheint FDg im Anwendungsmenü und kann stabil an die Taskleiste geheftet werden.</li>
+    <li><b>Systemintegration entfernen...</b>: Erkennt einen installierten Starter und deinstalliert ihn bei Bedarf mit einem einzigen Klick.</li>
+</ul>
+
+<h2>7. Automatische Prüfung & Installation der 'fd'-Engine</h2>
+<p>
+Für blitzschnelle Suchvorgänge nutzt FDg die Befehlszeilen-Suchmaschine <code>fd</code> (auf Debian und Ubuntu als <code>fd-find</code> / <code>fdfind</code> bezeichnet).
+</p>
+<div class="callout">
+<b>Intelligente Startprüfung:</b><br/>
+Beim Start überprüft FDg automatisch, ob der Befehl <code>fd</code> oder <code>fdfind</code> auf Ihrem Betriebssystem installiert ist.<br/>
+Fehlt das Programm, öffnet sich ein Dialogfenster mit der Frage, ob es automatisch heruntergeladen und installiert werden soll.
+</div>
+<ul>
+    <li><b>Automatische Distributionserkennung:</b> FDg erkennt Ihren Paketmanager (Arch Linux mit <code>pacman</code>, Debian/Ubuntu mit <code>apt-get</code>, Fedora mit <code>dnf</code>, openSUSE mit <code>zypper</code>).</li>
+    <li><b>Sichere grafische Authentifizierung:</b> Administratorrechte werden sicher über das native PolicyKit-Fenster (<code>pkexec</code>) angefordert.</li>
+    <li><b>Echtzeit-Protokollierung:</b> Während der Installation wird die Konsolenausgabe live mit Fortschrittsbalken und Bestätigungsmeldung angezeigt.</li>
+    <li><b>Vorabprüfung und Menüzugriff:</b> Über <b>Werkzeuge &rarr; 'fd'-Engine prüfen oder installieren...</b> prüft FDg zuerst, ob die Engine bereits vorhanden ist, und zeigt die Version an. Ist sie bereits installiert, wird die Betriebsbereitschaft bestätigt, ohne erneut zu installieren; nur bei Fehlen wird die geführte Installation gestartet.</li>
+</ul>
+
+<h2>8. Tastaturkürzel</h2>
+<table>
+    <tr><th>Tastenkombination</th><th>Aktion</th></tr>
+    <tr><td><code>Strg+N</code></td><td>Neue Suche: leert das Suchfeld und entfernt alle bisherigen Ergebnisse</td></tr>
+    <tr><td><code>Strg+Q</code></td><td>Beendet die Anwendung</td></tr>
+    <tr><td><code>F1</code></td><td>Öffnet dieses Benutzerhandbuch</td></tr>
+    <tr><td><code>Eingabe</code> im Suchfeld</td><td>Startet die Suche</td></tr>
+    <tr><td><code>Eingabe</code> in der Ergebnisliste</td><td>Öffnet die ausgewählte Datei</td></tr>
+</table>
+
+<div class="footer">
+FDg v1.2.0 | Idee: PsyTech76 | Entwickelt mit KI | Kostenlose Open-Source-Software
+</div>
+</body>
+</html>

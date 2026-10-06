@@ -1,0 +1,23 @@
+# Build directories
+build/
+build-debian/
+AppDir/
+
+# Compiled executables and binary distributions
+fdg
+*.AppImage
+*.zip
+
+# CMake artifacts
+CMakeUserPresets.json
+install_local_manifest.txt
+*.user
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE configurations
+.vscode/
+.idea/
+.DS_Store

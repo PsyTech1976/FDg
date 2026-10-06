@@ -1,0 +1,28 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file>icons/appicon.svg</file>
+        <file>icons/appicon.png</file>
+        <file>icons/appicon_256.png</file>
+        <file>icons/flags/it.png</file>
+        <file>icons/flags/en.png</file>
+        <file>icons/flags/de.png</file>
+        <file>icons/flags/es.png</file>
+        <file>icons/flags/fr.png</file>
+        <file>icons/flags/it.svg</file>
+        <file>icons/flags/en.svg</file>
+        <file>icons/flags/de.svg</file>
+        <file>icons/flags/es.svg</file>
+        <file>icons/flags/fr.svg</file>
+        <file>help/guide_it.html</file>
+        <file>help/guide_en.html</file>
+        <file>help/guide_de.html</file>
+        <file>help/guide_es.html</file>
+        <file>help/guide_fr.html</file>
+        <file>translations/fd_frontend_it.qm</file>
+        <file>translations/fd_frontend_en.qm</file>
+        <file>translations/fd_frontend_de.qm</file>
+        <file>translations/fd_frontend_es.qm</file>
+        <file>translations/fd_frontend_fr.qm</file>
+    </qresource>
+</RCC>

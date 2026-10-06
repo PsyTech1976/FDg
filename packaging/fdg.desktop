@@ -1,0 +1,19 @@
+[Desktop Entry]
+Type=Application
+Name=FDg
+GenericName=File Search Utility
+GenericName[it]=Strumento di ricerca file
+GenericName[de]=Dateisuchwerkzeug
+GenericName[es]=Herramienta de búsqueda de archivos
+GenericName[fr]=Outil de recherche de fichiers
+Comment=Modern Qt6 GUI Frontend for the fd search command
+Comment[it]=Interfaccia grafica moderna in Qt6 per il comando di ricerca fd (Idea di PsyTech76)
+Comment[de]=Moderne Qt6-GUI für den Suchbefehl fd (Idee von PsyTech76)
+Comment[es]=Interfaz gráfica Qt6 moderna para el comando fd (Idea de PsyTech76)
+Comment[fr]=Interface graphique Qt6 moderne pour la commande fd (Idée de PsyTech76)
+Exec=fdg %F
+Icon=appicon
+Terminal=false
+Categories=Utility;Filesystem;Qt;System;
+Keywords=fd;fdg;find;search;files;filesystem;ricerca;cerca;
+StartupNotify=true

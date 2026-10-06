@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>950</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FDg</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainVerticalLayout">
+    <property name="spacing">
+     <number>8</number>
+    </property>
+    <property name="leftMargin">
+     <number>12</number>
+    </property>
+    <property name="topMargin">
+     <number>12</number>
+    </property>
+    <property name="rightMargin">
+     <number>12</number>
+    </property>
+    <property name="bottomMargin">
+     <number>8</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="controlsFrame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="controlsVerticalLayout">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <property name="leftMargin">
+        <number>8</number>
+       </property>
+       <property name="topMargin">
+        <number>8</number>
+       </property>
+       <property name="rightMargin">
+        <number>8</number>
+       </property>
+       <property name="bottomMargin">
+        <number>8</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="searchQueryLayout">
+         <property name="spacing">
+          <number>8</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="searchLabel">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Cerca:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="searchLineEdit">
+           <property name="placeholderText">
+            <string>Inserisci il nome del file o pattern da cercare...</string>
+           </property>
+           <property name="clearButtonEnabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="searchButton">
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Cerca</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="folderLayout">
+         <property name="spacing">
+          <number>8</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="folderLabel">
+           <property name="text">
+            <string>Cartella:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="homeFolderButton">
+           <property name="text">
+            <string>Home</string>
+           </property>
+           <property name="toolTip">
+            <string>Imposta la cartella Home dell'utente come percorso di partenza</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="folderLineEdit">
+           <property name="placeholderText">
+            <string>Percorso di partenza...</string>
+           </property>
+           <property name="clearButtonEnabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="browseButton">
+           <property name="text">
+            <string>Sfoglia...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="toggleOptionsLayout">
+         <property name="spacing">
+          <number>4</number>
+         </property>
+         <item>
+          <widget class="QToolButton" name="toggleOptionsButton">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="text">
+            <string>▶ Parametri aggiuntivi di ricerca</string>
+           </property>
+           <property name="toolTip">
+            <string>Mostra o nascondi le opzioni avanzate di ricerca e localizzazione</string>
+           </property>
+           <property name="autoRaise">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="toggleOptionsSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QWidget" name="advancedOptionsWidget" native="true">
+         <layout class="QHBoxLayout" name="optionsLayout">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+         <property name="spacing">
+          <number>12</number>
+         </property>
+         <item>
+          <widget class="QCheckBox" name="hiddenCheckBox">
+           <property name="text">
+            <string>File nascosti (-H)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="caseSensitiveCheckBox">
+           <property name="text">
+            <string>Distingui maiuscole (-s)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="symlinksCheckBox">
+           <property name="text">
+            <string>Segui symlink (-L)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="wildcardCheckBox">
+           <property name="text">
+            <string>Jolly / Wildcard (*, ?)</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="toolTip">
+            <string>Abilita i caratteri jolly stile MS-DOS (* e ?). Esempio: *.txt o test*</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="typeLabel">
+           <property name="text">
+            <string>Tipo:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="typeComboBox">
+           <item>
+            <property name="text">
+             <string>Tutti</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Solo file</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Solo cartelle</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <spacer name="optionsSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="languageLabel">
+           <property name="text">
+            <string>Lingua:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="languageComboBox">
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>0</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="progressLayout">
+      <property name="spacing">
+       <number>8</number>
+      </property>
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="maximumHeight">
+         <number>16</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="statusLabel">
+        <property name="minimumSize">
+         <size>
+          <width>220</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Pronto</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTreeWidget" name="resultsTreeWidget">
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::ExtendedSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="animated">
+       <bool>true</bool>
+      </property>
+      <property name="allColumnsShowFocus">
+       <bool>true</bool>
+      </property>
+      <column>
+       <property name="text">
+        <string>Nome File</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Percorso</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="footerFrame">
+      <property name="styleSheet">
+       <string notr="true">QFrame#footerFrame { background-color: palette(window); border-top: 1px solid palette(mid); border-radius: 4px; padding: 4px; }</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <layout class="QHBoxLayout" name="footerLayout">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>2</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="attributionLabel">
+         <property name="font">
+          <font>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>Applicazione realizzata con IA su un'idea di PsyTech76 - Gratuita</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="footerSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="guideButton">
+         <property name="text">
+          <string>Guida...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="aboutButton">
+         <property name="text">
+          <string>Informazioni</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>950</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionNuovaRicerca"/>
+    <addaction name="separator"/>
+    <addaction name="actionEsci"/>
+   </widget>
+   <widget class="QMenu" name="menuStrumenti">
+    <property name="title">
+     <string>&amp;Strumenti</string>
+    </property>
+    <addaction name="actionInstallFd"/>
+    <addaction name="separator"/>
+    <addaction name="actionToggleDesktopIntegration"/>
+   </widget>
+   <widget class="QMenu" name="menuAiuto">
+    <property name="title">
+     <string>&amp;Aiuto</string>
+    </property>
+    <addaction name="actionGuida"/>
+    <addaction name="separator"/>
+    <addaction name="actionInformazioni"/>
+    <addaction name="actionInformazioniQt"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuStrumenti"/>
+   <addaction name="menuAiuto"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionGuida">
+   <property name="text">
+    <string>&amp;Guida dell'applicazione...</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionNuovaRicerca">
+   <property name="text">
+    <string>&amp;Nuova Ricerca</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionEsci">
+   <property name="text">
+    <string>&amp;Esci</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionInformazioni">
+   <property name="text">
+    <string>&amp;Informazioni su FDg</string>
+   </property>
+  </action>
+  <action name="actionInformazioniQt">
+   <property name="text">
+    <string>Informazioni su &amp;Qt</string>
+   </property>
+  </action>
+  <action name="actionInstallFd">
+   <property name="text">
+    <string>&amp;Verifica o Installa motore 'fd'...</string>
+   </property>
+   <property name="statusTip">
+    <string>Verifica la presenza del comando 'fd' nel sistema o avvia l'installazione automatica guidata</string>
+   </property>
+  </action>
+  <action name="actionToggleDesktopIntegration">
+   <property name="text">
+    <string>&amp;Integra nel sistema (Menu e Barra)...</string>
+   </property>
+   <property name="statusTip">
+    <string>Crea o rimuove il lanciatore desktop per integrare FDg nel menu di sistema e nella barra delle applicazioni</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

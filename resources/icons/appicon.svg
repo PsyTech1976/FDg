@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Sfondo gradiente moderno -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2f" />
+      <stop offset="50%" stop-color="#282a36" />
+      <stop offset="100%" stop-color="#181926" />
+    </linearGradient>
+
+    <!-- Gradiente accento ciano/smeraldo -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+
+    <!-- Gradiente lente lente ingrandimento -->
+    <linearGradient id="lensGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38ef7d" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#11998e" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Gradiente cartella -->
+    <linearGradient id="folderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb347" />
+      <stop offset="100%" stop-color="#ffcc33" />
+    </linearGradient>
+
+    <!-- Ombra morbida -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Base squadrata arrotondata -->
+  <rect x="32" y="32" width="448" height="448" rx="96" fill="url(#bgGrad)" stroke="#4facfe" stroke-width="4" stroke-opacity="0.4" filter="url(#dropShadow)" />
+
+  <!-- Sagoma Cartella sullo sfondo -->
+  <g opacity="0.85">
+    <path d="M 120 160 L 210 160 L 245 195 L 392 195 C 405 195 416 206 416 219 L 416 350 C 416 363 405 374 392 374 L 120 374 C 107 374 96 363 96 350 L 96 184 C 96 171 107 160 120 160 Z"
+          fill="url(#folderGrad)" filter="url(#dropShadow)" />
+    <!-- Bordo interno cartella -->
+    <path d="M 96 230 L 416 230" stroke="#f39c12" stroke-width="3" opacity="0.6" />
+  </g>
+
+  <!-- Lente d'ingrandimento e velocita -->
+  <g filter="url(#dropShadow)">
+    <!-- Manico della lente -->
+    <line x1="285" y1="285" x2="385" y2="385" stroke="url(#accentGrad)" stroke-width="28" stroke-linecap="round" />
+    <line x1="285" y1="285" x2="385" y2="385" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.5" />
+
+    <!-- Cerchio esterno lente -->
+    <circle cx="225" cy="225" r="95" fill="url(#lensGrad)" stroke="url(#accentGrad)" stroke-width="20" />
+    <circle cx="225" cy="225" r="85" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.4" />
+
+    <!-- Riflesso di luce sulla lente -->
+    <path d="M 160 180 A 70 70 0 0 1 240 150" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" opacity="0.7" />
+  </g>
+
+  <!-- Testo stilizzato "fd" dentro la lente -->
+  <text x="225" y="248"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="82"
+        font-weight="900"
+        fill="#ffffff"
+        text-anchor="middle"
+        letter-spacing="-3">fd</text>
+
+  <!-- Linee dinamiche di velocita (indicazione di ricerca fulminea) -->
+  <path d="M 80 130 L 140 130" stroke="#00f2fe" stroke-width="8" stroke-linecap="round" opacity="0.8" />
+  <path d="M 60 150 L 110 150" stroke="#00f2fe" stroke-width="6" stroke-linecap="round" opacity="0.6" />
+  <path d="M 90 170 L 130 170" stroke="#00f2fe" stroke-width="5" stroke-linecap="round" opacity="0.4" />
+</svg>
