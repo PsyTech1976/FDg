@@ -14,28 +14,30 @@
 ## 🇮🇹 INDICE DEI CONTENUTI (Italiano)
 1. [Cos'è FDg](#-cosè-fdg)
 2. [Caratteristiche Principali](#-caratteristiche-principali)
-3. [Guida all'Uso Lato Utente](#-guida-alluso-lato-utente)
-4. [Integrazione di Sistema e Barra delle Applicazioni](#-integrazione-di-sistema-e-barra-delle-applicazioni)
-5. [Verifica e Installazione Automatica del Motore 'fd'](#-verifica-e-installazione-automatica-del-motore-fd)
-6. [Scorciatoie da Tastiera](#-scorciatoie-da-tastiera)
-7. [Informazioni sulla Distribuzione (AppImage)](#-informazioni-sulla-distribuzione-appimage)
-8. [Compilazione dai Sorgenti](#-compilazione-dai-sorgenti)
-9. [Struttura del Progetto](#-struttura-del-progetto)
-10. [Crediti e Licenza](#-crediti-e-licenza)
+3. [Schermate dell'Applicazione](#-schermate-dellapplicazione)
+4. [Guida all'Uso Lato Utente](#-guida-alluso-lato-utente)
+5. [Integrazione di Sistema e Barra delle Applicazioni](#-integrazione-di-sistema-e-barra-delle-applicazioni)
+6. [Verifica e Installazione Automatica del Motore 'fd'](#-verifica-e-installazione-automatica-del-motore-fd)
+7. [Scorciatoie da Tastiera](#-scorciatoie-da-tastiera)
+8. [Informazioni sulla Distribuzione (AppImage)](#-informazioni-sulla-distribuzione-appimage)
+9. [Compilazione dai Sorgenti](#-compilazione-dai-sorgenti)
+10. [Struttura del Progetto](#-struttura-del-progetto)
+11. [Crediti e Licenza](#-crediti-e-licenza)
 
 ---
 
 ## 🇬🇧 TABLE OF CONTENTS (English)
 1. [What is FDg?](#-what-is-fdg)
 2. [Key Features](#-key-features)
-3. [User Guide & How It Works](#-user-guide--how-it-works)
-4. [System & Taskbar Desktop Integration](#-system--taskbar-desktop-integration)
-5. [Automated Engine Verification & Installation](#-automated-engine-verification--installation)
-6. [Keyboard Shortcuts](#-keyboard-shortcuts)
-7. [Distribution & AppImage Packaging](#-distribution--appimage-packaging)
-8. [Building from Source](#-building-from-source)
-9. [Project Architecture](#-project-architecture)
-10. [Credits & License](#-credits--license)
+3. [Application Screenshots](#-application-screenshots)
+4. [User Guide & How It Works](#-user-guide--how-it-works)
+5. [System & Taskbar Desktop Integration](#-system--taskbar-desktop-integration)
+6. [Automated Engine Verification & Installation](#-automated-engine-verification--installation)
+7. [Keyboard Shortcuts](#-keyboard-shortcuts)
+8. [Distribution & AppImage Packaging](#-distribution--appimage-packaging)
+9. [Building from Source](#-building-from-source)
+10. [Project Architecture](#-project-architecture)
+11. [Credits & License](#-credits--license)
 
 ---
 
@@ -69,6 +71,25 @@ Mentre la maggior parte dei cercatori grafici tradizionali risulta lenta o appes
 - **Verifica e Installazione Guidata del Motore**: Riconosce all'avvio e da menu la presenza di `fd` o `fdfind`. Se assente, propone l'installazione automatica multi-distro (Arch Linux, Debian/Ubuntu, Fedora, openSUSE) con autorizzazione nativa PolicyKit (`pkexec`) e log in tempo reale.
 - **Guida Utente HTML Multilingua Integrata**: Manuale integrato nell'AppImage in 5 lingue (Italiano, Inglese, Tedesco, Spagnolo, Francese) consultabile con un browser minimale Qt (`QTextBrowser`).
 - **Interfaccia Multilingua (i18n)**: Traduzioni native in 5 lingue con icone a bandiera SVG/PNG nitide.
+
+---
+
+## 📸 Schermate dell'Applicazione
+
+> [!NOTE]
+> Per garantire la massima riservatezza e conformità con le buone pratiche di privacy, eventuali dati sensibili mostrati nelle schermate (nomi utente, indirizzi IP di rete e percorsi privati) sono stati oscurati con sfocatura (*Privacy Blur*).
+
+| 🔍 Schermata Principale (Ricerca Rapida) | ⚙️ Parametri Avanzati di Ricerca Espansi |
+| :---: | :---: |
+| ![FDg - Ricerca Principale](docs/images/screenshot_main_it.png) | ![FDg - Opzioni Avanzate](docs/images/screenshot_options_it.png) |
+| *Vista essenziale con risultati ordinati e pulsante opzioni compresso* | *Pannello espanso con wildcard, regex, filtri e selettore lingua* |
+
+<br/>
+
+| 📖 Guida Utente HTML Integrata (Browser Offline) |
+| :---: |
+| ![FDg - Guida Integrata](docs/images/screenshot_guide_it.png) |
+| *Manuale d'uso integrato visualizzabile offline con commutazione lingua a 1 click* |
 
 ---
 
@@ -201,6 +222,7 @@ bash packaging/build_all.sh
 FDg/
 ├── CMakeLists.txt              # Configurazione di build CMake per Qt 6
 ├── README.md                   # Documentazione bilingue (Italiano ed Inglese)
+├── SPEC.md                     # Specifiche tecniche e funzionali formali
 ├── LICENSE                     # Licenza open-source MIT
 ├── src/                        # Codice sorgente C++ / Qt 6
 │   ├── main.cpp                # Punto di ingresso dell'applicazione
@@ -221,10 +243,13 @@ FDg/
 │   ├── bundle_appimage.py      # Script di estrazione librerie e plugin
 │   ├── Dockerfile.debian12     # Container di compilazione per massima compatibilità
 │   └── fdg.desktop             # Definizione lanciatore XDG
-└── docs/                       # Documentazione tecnica e generatore PDF
-    ├── DOCUMENTAZIONE.md       # Documento tecnico completo
-    ├── generate_pdf.py         # Script Python/Qt per la generazione del PDF
-    └── FDg-Documentazione.pdf   # Manuale tecnico in formato PDF
+├── docs/                       # Documentazione tecnica e manuali
+│   ├── DOCUMENTAZIONE.md       # Documento tecnico completo
+│   ├── FDg-Documentazione.pdf  # Manuale tecnico in formato PDF
+│   ├── images/                 # Schermate dell'applicazione per la documentazione
+│   ├── create_help_files.py    # Generatore guide HTML multilingua
+│   └── generate_pdf.py         # Script Python/Qt per la generazione del PDF
+└── tools/                      # Script e tool ausiliari (cattura screenshot, blur privacy)
 ```
 
 ---
@@ -268,6 +293,25 @@ While conventional graphical file search tools are notoriously slow or burdened 
 - **Distro-Aware Engine Verification & Installer**: Verifies at startup and on-demand whether `fd` or `fdfind` is installed. If absent, guides the user through automatic installation on Arch Linux, Debian/Ubuntu, Fedora, or openSUSE via native PolicyKit (`pkexec`) with real-time logs.
 - **Embedded Multi-Language HTML User Guide**: User manual bundled inside the AppImage in 5 languages (English, Italian, German, Spanish, French), viewable via a built-in lightweight Qt viewer (`QTextBrowser`).
 - **Full Localization (i18n)**: UI available in 5 languages with crisp SVG/PNG flag icons.
+
+---
+
+## 📸 Application Screenshots
+
+> [!NOTE]
+> To ensure confidentiality and privacy compliance, sensitive information displayed in the screenshots (such as user names, internal IP addresses, and private configuration paths) has been protected using Gaussian blur (*Privacy Blur*).
+
+| 🔍 Main Search Interface | ⚙️ Advanced Search Parameters Expanded |
+| :---: | :---: |
+| ![FDg - Main Search](docs/images/screenshot_main_en.png) | ![FDg - Advanced Options](docs/images/screenshot_options_en.png) |
+| *Clean interface with sorted results and collapsible options panel collapsed* | *Expanded panel showing wildcards, regex, filters, and language switcher* |
+
+<br/>
+
+| 📖 Embedded HTML User Guide (Offline Browser) |
+| :---: |
+| ![FDg - Integrated Guide](docs/images/screenshot_guide_en.png) |
+| *Self-contained offline documentation browser with one-click language switching* |
 
 ---
 
@@ -400,6 +444,7 @@ bash packaging/build_all.sh
 FDg/
 ├── CMakeLists.txt              # CMake build configuration for Qt 6
 ├── README.md                   # Bilingual documentation (Italian & English)
+├── SPEC.md                     # Formal technical and functional specifications
 ├── LICENSE                     # MIT Open Source License
 ├── src/                        # C++ / Qt 6 source code
 │   ├── main.cpp                # Application entry point
@@ -420,10 +465,13 @@ FDg/
 │   ├── bundle_appimage.py      # Dependency and plugin bundler
 │   ├── Dockerfile.debian12     # Compatibility build container
 │   └── fdg.desktop             # Standard XDG desktop entry
-└── docs/                       # Technical documentation and PDF generator
-    ├── DOCUMENTAZIONE.md       # Comprehensive architectural documentation
-    ├── generate_pdf.py         # Python/Qt PDF generation script
-    └── FDg-Documentazione.pdf   # Technical manual in PDF format
+├── docs/                       # Technical documentation and manuals
+│   ├── DOCUMENTAZIONE.md       # Comprehensive architectural documentation
+│   ├── FDg-Documentazione.pdf  # Technical manual in PDF format
+│   ├── images/                 # Application screenshots for documentation
+│   ├── create_help_files.py    # Multi-language HTML help generator
+│   └── generate_pdf.py         # Python/Qt PDF generation script
+└── tools/                      # Auxiliary tools (screenshot capture, privacy blur)
 ```
 
 ---

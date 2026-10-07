@@ -47,6 +47,31 @@ target_link_libraries(fdg PRIVATE
     Qt6::DBus
 )
 
+# Tool ausiliario per generazione automatica screenshot per documentazione e README
+add_executable(capture_screenshots
+    tools/capture_screenshots.cpp
+    src/mainwindow.h
+    src/mainwindow.cpp
+    src/mainwindow.ui
+    src/fdrunner.h
+    src/fdrunner.cpp
+    src/filemanagerhelper.h
+    src/filemanagerhelper.cpp
+    src/guidedialog.h
+    src/guidedialog.cpp
+    src/desktopintegrator.h
+    src/desktopintegrator.cpp
+    src/dependencyinstaller.h
+    src/dependencyinstaller.cpp
+    resources/resources.qrc
+)
+target_link_libraries(capture_screenshots PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+    Qt6::DBus
+)
+
 # Regole di installazione per generazione pacchetti e AppImage
 include(GNUInstallDirs)
 install(TARGETS fdg DESTINATION ${CMAKE_INSTALL_BINDIR})
