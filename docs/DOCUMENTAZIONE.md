@@ -165,6 +165,14 @@ Questa sezione documenta le decisioni ingegneristiche e le soluzioni adottate a 
   - L'installazione guidata viene avviata **esclusivamente in sua assenza** (previa richiesta di conferma).
   - Un controllo di sicurezza identico è integrato anche all'interno di `DependencyInstallerDialog::startInstallation()`, garantendo che nessun pacchetto venga installato se il binario è già presente nel sistema.
 
+### 5.7. Omogeneizzazione Visiva Cross-Desktop e Gestione Temi (`ThemeHelper`)
+- **Problema Riscontrato**: Eseguendo il binario compilato su distribuzioni e ambienti desktop configurati con temi scuri o motori di stile differenti (es. KDE Plasma con Breeze Dark, GNOME con Adwaita, o Qt6CT), l'applicazione ereditava la palette scura e lo stile del sistema host, manifestando un aspetto grafico marcatamente diverso rispetto alle schermate e agli screenshot presenti nel `README.md`.
+- **Soluzione Ingegnerizzata (`ThemeHelper`)**:
+  - Creazione del modulo `ThemeHelper` (`src/themehelper.h`, `src/themehelper.cpp`) richiamato all'avvio in `main.cpp`.
+  - **Stile Predefinito Fusion Chiaro**: All'avvio viene imposto di default lo stile grafico `Fusion` con palette chiara calibrata (sfondo `#efefef`, base `#ffffff`, testo `#000000`, pulsanti e bordi definiti). Questo assicura che qualsiasi utente scarichi il repository, compili il codice o esegua l'AppImage ottenga un'esperienza visiva identica al 100% rispetto alla documentazione ufficiale del progetto.
+  - **Sottomenu Selezione Tema**: Nel menu `Strumenti` è stato integrato il sottomenu `Tema` che offre le voci *Chiaro (Predefinito)*, *Scuro* e *Predefinito di Sistema*, con commutazione dinamica a runtime.
+  - **Persistenza della Preferenza**: Lo stato del tema selezionato viene salvato in `QSettings` (`ui/themeMode`) e ripristinato automaticamente ad ogni sessione successiva.
+
 ---
 
 ## 6. Crediti e Licenza

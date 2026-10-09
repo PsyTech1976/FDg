@@ -71,6 +71,7 @@ Mentre la maggior parte dei cercatori grafici tradizionali risulta lenta o appes
 - **Verifica e Installazione Guidata del Motore**: Riconosce all'avvio e da menu la presenza di `fd` o `fdfind`. Se assente, propone l'installazione automatica multi-distro (Arch Linux, Debian/Ubuntu, Fedora, openSUSE) con autorizzazione nativa PolicyKit (`pkexec`) e log in tempo reale.
 - **Guida Utente HTML Multilingua Integrata**: Manuale integrato nell'AppImage in 5 lingue (Italiano, Inglese, Tedesco, Spagnolo, Francese) consultabile con un browser minimale Qt (`QTextBrowser`).
 - **Interfaccia Multilingua (i18n)**: Traduzioni native in 5 lingue con icone a bandiera SVG/PNG nitide.
+- **Stile Grafico Uniforme e Selettore Temi**: Adotta di default lo stile grafico `Fusion` con palette chiara pulita e definita, assicurando la perfetta corrispondenza visiva con gli screenshot della documentazione su qualsiasi desktop Linux (KDE Plasma, GNOME, XFCE) ed evitando discrepanze da temi scuri di sistema. Dal menu `Strumenti -> Tema` è possibile selezionare a piacere *Chiaro (Predefinito)*, *Scuro* o *Predefinito di Sistema*, con memorizzazione automatica.
 
 ---
 
@@ -231,6 +232,7 @@ FDg/
 │   ├── filemanagerhelper.h/.cpp# Apertura file e isolamento runtime
 │   ├── desktopintegrator.h/.cpp# Integrazione desktop XDG (.desktop e icone)
 │   ├── dependencyinstaller.h/.cpp# Installazione guidata dipendenze PolicyKit
+│   ├── themehelper.h/.cpp      # Gestione stili Fusion (Chiaro/Scuro) e coerenza visiva
 │   └── guidedialog.h/.cpp      # Browser minimale HTML multilingua
 ├── resources/                  # Risorse grafiche e traduzioni compilate
 │   ├── resources.qrc           # Qt Resource Collection
@@ -293,6 +295,7 @@ While conventional graphical file search tools are notoriously slow or burdened 
 - **Distro-Aware Engine Verification & Installer**: Verifies at startup and on-demand whether `fd` or `fdfind` is installed. If absent, guides the user through automatic installation on Arch Linux, Debian/Ubuntu, Fedora, or openSUSE via native PolicyKit (`pkexec`) with real-time logs.
 - **Embedded Multi-Language HTML User Guide**: User manual bundled inside the AppImage in 5 languages (English, Italian, German, Spanish, French), viewable via a built-in lightweight Qt viewer (`QTextBrowser`).
 - **Full Localization (i18n)**: UI available in 5 languages with crisp SVG/PNG flag icons.
+- **Uniform Visual Styling & Theme Switcher**: Automatically enforces the `Fusion` style with a dedicated crisp light palette by default, ensuring exact visual parity with documentation screenshots regardless of the user's host desktop theme (KDE Plasma, GNOME, XFCE). The `Tools -> Theme` menu lets users switch between *Light (Default)*, *Dark*, and *System Default*, persisted automatically.
 
 ---
 
@@ -453,6 +456,7 @@ FDg/
 │   ├── filemanagerhelper.h/.cpp# File execution & runtime environment scrubbing
 │   ├── desktopintegrator.h/.cpp# XDG Desktop integration (.desktop & icons)
 │   ├── dependencyinstaller.h/.cpp# Guided PolicyKit dependency installer
+│   ├── themehelper.h/.cpp      # Fusion styling & uniform appearance management
 │   └── guidedialog.h/.cpp      # Embedded lightweight multi-language HTML browser
 ├── resources/                  # Graphics and compiled localization resources
 │   ├── resources.qrc           # Qt Resource Collection

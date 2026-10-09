@@ -58,6 +58,7 @@ Il progetto segue un'architettura modulare orientata agli eventi (Event-Driven A
 | [`src/filemanagerhelper.h`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/filemanagerhelper.h) / [`.cpp`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/filemanagerhelper.cpp) | Astrazione per l'apertura delle directory; implementa l'interfaccia DBus standard FreeDesktop (`org.freedesktop.FileManager1.ShowItems`) per evidenziare i file ed esegue fallback mirati sui file manager più comuni (Nautilus, Dolphin, Nemo, Thunar, PCManFM). |
 | [`src/desktopintegrator.h`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/desktopintegrator.h) / [`.cpp`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/desktopintegrator.cpp) | Gestore del ciclo di vita del file lanciatore XDG (`.desktop`); installa o rimuove il collegamento in `~/.local/share/applications/` per consentire l'ancoraggio alla barra delle applicazioni e al menu di sistema. |
 | [`src/dependencyinstaller.h`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/dependencyinstaller.h) / [`.cpp`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/dependencyinstaller.cpp) | Gestore del rilevamento e dell'installazione del binario `fd`/`fdfind`; esegue verifiche preliminari sul PATH e invoca `pkexec` su APT o Pacman con dialog di avanzamento in tempo reale. |
+| [`src/themehelper.h`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/themehelper.h) / [`.cpp`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/themehelper.cpp) | Gestore centralizzato del tema e dello stile grafico; impone lo stile Fusion chiaro predefinito per perfetta coerenza con la documentazione e consente la selezione di temi Scuro e Sistema. |
 | [`src/guidedialog.h`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/guidedialog.h) / [`.cpp`](file:///home/tonibu/.gemini/antigravity/scratch/fd-frontend/src/guidedialog.cpp) | Visualizzatore integrato della guida utente HTML; renderizza la documentazione locale caricata dalle risorse Qt in 5 lingue differenti con selezione a runtime. |
 
 ---
@@ -131,6 +132,14 @@ Il progetto segue un'architettura modulare orientata agli eventi (Event-Driven A
 - **5 Lingue Supportate**: Italiano (IT), Inglese (EN), Tedesco (DE), Spagnolo (ES), Francese (FR).
 - **Icone Bandiere**: Grafiche dedicate vettoriali (SVG/PNG) integrate nelle risorse per garantire la corretta visualizzazione grafica indipendentemente dai font emoji di sistema.
 - **Visualizzatore Guida Integrato**: Dialog non modale con visualizzatore HTML locale, navigazione ipertestuale, tabelle e selettore rapido della lingua.
+
+### 3.7. Gestione Stile Grafico e Temi (Theme Engine)
+- **Risoluzione Eterogeneità Visiva Desktop**: I diversi ambienti Linux (KDE Plasma con Breeze Dark, GNOME con Adwaita, XFCE) applicano stili e palette proprietarie che causano discrepanze visive rispetto alla documentazione.
+- **Stile Predefinito Fusion Chiaro**: All'avvio dell'applicazione viene imposto programmaticamente lo stile `Fusion` abbinato a una palette chiara calibrata (sfondo `#efefef`, base `#ffffff`, testo `#000000`, pulsanti con rilievo nitido), assicurando identità al 100% rispetto alle schermate del progetto.
+- **Selettore Temi Integrato**:
+  - Voce di menu `Strumenti -> Tema` con opzioni *Chiaro (Predefinito)*, *Scuro* e *Predefinito di Sistema*.
+  - Persistenza della preferenza utente salvata in `QSettings` (`ui/themeMode`).
+  - Traduzione dinamica delle voci del menu in tutte e 5 le lingue supportate.
 
 ---
 
@@ -233,6 +242,7 @@ FDg/
 ├── docs/
 │   ├── DOCUMENTAZIONE.md         # Documentazione estesa del progetto
 │   ├── FDg-Documentazione.pdf    # Manuale utente e tecnico in formato PDF
+│   ├── images/                   # Schermate ufficiali dell'applicazione con privacy blur
 │   ├── create_help_files.py      # Generatore delle guide HTML multilingua
 │   └── generate_pdf.py           # Generatore della documentazione in PDF
 ├── resources/
@@ -245,7 +255,9 @@ FDg/
 │   ├── filemanagerhelper.h / .cpp# Integrazione DBus/CLI per file manager
 │   ├── desktopintegrator.h / .cpp# Gestione del lanciatore .desktop di sistema
 │   ├── dependencyinstaller.h / .cpp # Installer PolicyKit per il motore fd
+│   ├── themehelper.h / .cpp      # Gestione stili Fusion (Chiaro/Scuro) e coerenza visiva
 │   └── guidedialog.h / .cpp      # Visualizzatore guida HTML integrata
+├── tools/                        # Script ausiliari (cattura screenshot e blur privacy)
 └── translations/                 # File di traduzione e localizzazione
 ```
 

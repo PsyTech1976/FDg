@@ -33,6 +33,8 @@ set(SOURCES
     src/desktopintegrator.cpp
     src/dependencyinstaller.h
     src/dependencyinstaller.cpp
+    src/themehelper.h
+    src/themehelper.cpp
     resources/resources.qrc
 )
 
@@ -63,6 +65,8 @@ add_executable(capture_screenshots
     src/desktopintegrator.cpp
     src/dependencyinstaller.h
     src/dependencyinstaller.cpp
+    src/themehelper.h
+    src/themehelper.cpp
     resources/resources.qrc
 )
 target_link_libraries(capture_screenshots PRIVATE

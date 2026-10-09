@@ -5,6 +5,7 @@
 #include "guidedialog.h"
 #include "desktopintegrator.h"
 #include "dependencyinstaller.h"
+#include "themehelper.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -12,6 +13,7 @@
 #include <QMessageBox>
 #include <QClipboard>
 #include <QMenu>
+#include <QActionGroup>
 #include <QHeaderView>
 #include <QApplication>
 #include <QLocale>
@@ -84,6 +86,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Configurazione del selettore delle lingue
     setupLanguages();
+
+    // Configurazione del sottomenu di selezione tema (Chiaro Fusion, Scuro, Sistema)
+    setupThemeMenu();
 
     // Carica la lingua italiana di default
     loadLanguage(QStringLiteral("it"));
@@ -244,6 +249,46 @@ void MainWindow::setupLanguages()
     ui->languageComboBox->blockSignals(false);
 }
 
+void MainWindow::setupThemeMenu()
+{
+    m_themeMenu = new QMenu(tr("&Tema"), this);
+    ui->menuStrumenti->addSeparator();
+    ui->menuStrumenti->addMenu(m_themeMenu);
+
+    QActionGroup *themeGroup = new QActionGroup(this);
+
+    m_actThemeLight = m_themeMenu->addAction(tr("Chiaro (Predefinito)"));
+    m_actThemeLight->setCheckable(true);
+    themeGroup->addAction(m_actThemeLight);
+
+    m_actThemeDark = m_themeMenu->addAction(tr("Scuro"));
+    m_actThemeDark->setCheckable(true);
+    themeGroup->addAction(m_actThemeDark);
+
+    m_actThemeSystem = m_themeMenu->addAction(tr("Predefinito di Sistema"));
+    m_actThemeSystem->setCheckable(true);
+    themeGroup->addAction(m_actThemeSystem);
+
+    ThemeMode current = ThemeHelper::currentTheme();
+    if (current == ThemeMode::Dark) {
+        m_actThemeDark->setChecked(true);
+    } else if (current == ThemeMode::System) {
+        m_actThemeSystem->setChecked(true);
+    } else {
+        m_actThemeLight->setChecked(true);
+    }
+
+    connect(m_actThemeLight, &QAction::triggered, this, [this]() {
+        ThemeHelper::setTheme(ThemeMode::Light);
+    });
+    connect(m_actThemeDark, &QAction::triggered, this, [this]() {
+        ThemeHelper::setTheme(ThemeMode::Dark);
+    });
+    connect(m_actThemeSystem, &QAction::triggered, this, [this]() {
+        ThemeHelper::setTheme(ThemeMode::System);
+    });
+}
+
 void MainWindow::loadLanguage(const QString &localeCode)
 {
     m_currentLocale = localeCode;
@@ -303,6 +348,14 @@ void MainWindow::updateUiText()
 
     // Aggiorna testo e stato dell'integrazione desktop in base alla lingua attiva
     updateDesktopIntegrationAction();
+
+    // Aggiorna testi del sottomenu Tema
+    if (m_themeMenu) {
+        m_themeMenu->setTitle(tr("&Tema"));
+        if (m_actThemeLight) m_actThemeLight->setText(tr("Chiaro (Predefinito)"));
+        if (m_actThemeDark) m_actThemeDark->setText(tr("Scuro"));
+        if (m_actThemeSystem) m_actThemeSystem->setText(tr("Predefinito di Sistema"));
+    }
 }
 
 void MainWindow::changeEvent(QEvent *event)

@@ -103,6 +103,7 @@ private:
     void setupUiCustomizations();
     void setupConnections();
     void setupLanguages();
+    void setupThemeMenu();
     void loadLanguage(const QString &localeCode);
     void updateUiText();
     void updateAdvancedOptionsVisibility(); ///< Aggiorna stato e freccia (▶/▼) dei parametri aggiuntivi
@@ -115,6 +116,11 @@ private:
     QString m_currentLocale;                 // Locale attualmente impostato (it, en, de, es, fr)
     int m_itemsCounter;                      // Contatore elementi correnti
     bool m_optionsExpanded;                  // Flag visibilità parametri aggiuntivi di ricerca
+
+    QMenu *m_themeMenu = nullptr;            // Sottomenu selezione tema
+    QAction *m_actThemeLight = nullptr;      // Azione tema chiaro (Fusion predefinito)
+    QAction *m_actThemeDark = nullptr;       // Azione tema scuro (Fusion dark)
+    QAction *m_actThemeSystem = nullptr;     // Azione tema predefinito di sistema
 };
 
 #endif // MAINWINDOW_H

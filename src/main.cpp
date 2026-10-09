@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QIcon>
 #include "mainwindow.h"
+#include "themehelper.h"
 
 /**
  * @file main.cpp
@@ -52,6 +53,10 @@ int main(int argc, char *argv[])
 
     // Icona globale dell'applicazione
     QApplication::setWindowIcon(QIcon(QStringLiteral(":/icons/appicon.png")));
+
+    // Inizializza lo stile grafico e la palette uniforme dell'applicazione (Fusion Chiaro predefinito)
+    // per garantire un aspetto identico su ogni distribuzione Linux e fedele alla documentazione
+    ThemeHelper::initTheme();
 
     // Creazione e visualizzazione della finestra principale
     MainWindow window;
